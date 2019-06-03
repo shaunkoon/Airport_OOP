@@ -1,5 +1,5 @@
 class Flight_Trip:
-    def __init__(self, flightnum, origin, destination, planetype='N/A'):
+    def __init__(self, flightnum="", origin="", destination="", planetype=""):
         self.flightnum = flightnum
         self.origin = origin
         self.destination = destination

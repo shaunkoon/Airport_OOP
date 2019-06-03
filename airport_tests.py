@@ -1,5 +1,7 @@
 from passengers_class import *
 from planes_class import *
+from flight_trip_class import *
+from planes_class import *
 import pytest
 
 
@@ -37,23 +39,39 @@ def test_create_plane_with_num():
 
 # As a user I can create a flight with no specific information
 
+def test_create_flight():
+    test = Flight_Trip()
+    assert test
+
 # As a user I can add a plane
+
+def test_add_plane():
+    test_plane = Planes(planetype="Boeing 737")
+    test_flight = Flight_Trip()
+    test_flight.set_plane(test_plane)
+    assert test_plane == test_flight.plane
 
 # As a User I can add a destination
 
+def test_add_destination():
+    test = Flight_Trip(destination="Australia")
+    assert test.destination == "Australia"
+
 # As a user I can add a origin
+
+def test_add_origin():
+    test = Flight_Trip(origin="Chad")
+    assert test.origin == "Chad"
 
 # As a user I can add a Passenger to the list of passengers
 
-# Passenger list is a list of objct that are Passenger
+def test_add_passenger():
+    test_passenger = Passenger("name", "passport number")
+    test_flight = Flight_Trip()
+    test_flight.add_passenger(test_passenger)
+    assert test_passenger in test_flight.passenger_list
 
 
 
 
-# print('Lists of flight trips:')
-# for obj in gc.get_objects():
-#     if isinstance(obj, Flight_Trip):
-#         print(obj.flightnum, 'From', obj.origin, 'to', obj.destination)
-#
-# def test_create_passenger():
-#     assert create_passenger('Joana Thomson', 'B343123', 'British')
+
