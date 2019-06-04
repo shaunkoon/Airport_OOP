@@ -41,7 +41,7 @@ def test_create_plane_with_num():
 
 def test_create_flight():
     test = Flight_Trip()
-    assert test
+    assert isinstance(test, Flight_Trip)
 
 # As a user I can add a plane
 
@@ -71,7 +71,11 @@ def test_add_passenger():
     test_flight.add_passenger(test_passenger)
     assert test_passenger in test_flight.passenger_list
 
-
+def test_add_passenger_list():
+    test_passenger = Passenger("name", "passport number")
+    test_flight = Flight_Trip()
+    test_flight.add_passenger(test_passenger)
+    assert type(test_flight.passenger_list) == list
 
 
 
